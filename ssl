@@ -1,0 +1,26 @@
+要第三方验证找openSSL
+有git 基本上就是已经安装了
+
+怎么用
+直接当前目录 git bash
+然后git 界面输入
+openssl
+然后输入这个
+req -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365
+
+生成的.pem就是证书
+key是你的
+cert是解密key的
+然后在代码里面设置
+
+用https模块
+这样允许你传入ssl的key 和value
+
+// https://localhost:3000/
+// 当我们这样设置以后 必须要加上https://才能运行
+https.createServer({
+    key: fs.readFileSync('key.pem'),
+    cert: fs.readFileSync('cert.pem'),
+},app).listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`)
+});

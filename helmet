@@ -1,0 +1,13 @@
+npm install helmet
+// helmet是一个express中间件 保护信息的
+// 真你妈是头盔啊
+// 保护response的header
+const helmet = require('helmet');
+
+const PORT = 3000;
+const app = express();
+//在第一层use直接架上helmet
+app.use(helmet());
+
+没登陆 是401 这个是authentication
+登录了没有permission 是403 这个是authorization

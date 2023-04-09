@@ -1,0 +1,43 @@
+api 加上 jwt
+这样指定的人才能使用我们的api
+
+oauth2.0
+这个是用来做第三方登录的
+为什么很多网站可以用google 登录 oauth2.0就是用来做这个的
+当你用这个登录一个网站的时候 你会同时登录之前的那些也是oauth的网站
+When you use OAuth to login to a website,
+you are granting that website access to your account information
+on the OAuth provider (such as Google, Facebook, or Twitter).
+If you have previously granted access to other websites using the same OAuth provider,
+those websites will also have access to your account information.
+
+保护user的而且减少user登录
+
+你看某个网站的过程
+
+你用谷歌登录
+谷歌问你同不同意
+你同意,登录成功
+给你token 登录成功
+
+创造oauth
+apps/services->credentials->create credentials->OAuth client ID
+👇
+configure consent screen->external->save
+//internal给内部用的 external给外部用的
+
+
+Authorized JavaScript origins
+这里配置的url 是告诉谷歌 同意哪个网址送过来的登录请求
+Authorized redirect URIs
+这个配置的url 是告诉谷歌 在登录成功以后把redirect打到那个url
+
+The authorized URL is where Google verifies requests and
+the redirect URL is where Google sends the authorization code
+after the user grants permission.
+
+The redirect URL tells Google where to send the authorization code
+and your app uses that code to obtain an access token for the user
+
+
+用passport来使用oauth2.0

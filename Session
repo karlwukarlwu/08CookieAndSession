@@ -1,0 +1,11 @@
+npm install express-session  serverside的
+或者用
+npm install cookie-session   clientside的
+
+
+express-session 用法
+这个存id 但是数据存在database里面
+因此这个还需要连数据库
+
+cookie-session 用法
+数据存在浏览器里面
